@@ -3,6 +3,8 @@ import { TextField, Button } from "@mui/material";
 import { base_url } from "../constants";
 import { useState } from "react";
 
+import AppLogo from "../budyyapp.png";
+
 const LoginScreen = () => {
   const navigate = useNavigate();
   const [userName, setUserName] = useState();
@@ -46,15 +48,25 @@ const LoginScreen = () => {
         backgroundRepeat: "no-repeat",
         height: "100vh",
         padding: 30,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
-      <div style={{ marginTop: "200px" }}>
+      <div style={{ marginBottom: "20px" }}>
+        <img src={AppLogo} alt="logo" style={{ borderRadius: "40px" }} />
+      </div>
+      <div style={{ marginTop: "20px" }}>
         <TextField
           fullWidth
           id="outlined-basic"
           label="Username"
           variant="outlined"
           onChange={handleUsernameChange}
+          size="small"
+          InputProps={{ sx: { fontSize: "18px" } }}
+          InputLabelProps={{ sx: { fontSize: "16px", fontFamily: "cursive" } }}
         />
         <TextField
           fullWidth
@@ -63,18 +75,31 @@ const LoginScreen = () => {
           label="Password"
           variant="outlined"
           sx={{ marginTop: 2 }}
+          InputProps={{ sx: { fontSize: "18px" } }}
+          InputLabelProps={{ sx: { fontSize: "16px", fontFamily: "cursive" } }}
           onChange={handlePasswordChange}
+          size="small"
         />
         <Button
-          sx={{ width: "100%", marginTop: 3, textTransform: "none" }}
+          sx={{ width: "100%", marginTop: 2, textTransform: "none" }}
           variant="contained"
           onClick={handleLogin}
         >
           Login
         </Button>
-        <div style={{ marginTop: 8, fontSize: 14, textAlign: "center" }}>
-          New User?{" "}
-          <span style={{ color: "skyblue" }} onClick={handleRegister}>
+        <div
+          style={{
+            marginTop: 10,
+            fontSize: 14,
+            textAlign: "center",
+            color: "GrayText",
+          }}
+        >
+          Haven't signed up ?{" "}
+          <span
+            style={{ color: "rgb(7,55,99)", opacity: "0.8" }}
+            onClick={handleRegister}
+          >
             Register
           </span>
         </div>

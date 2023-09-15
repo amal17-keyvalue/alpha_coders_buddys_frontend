@@ -1,12 +1,16 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ThemeProvider } from "@emotion/react";
+
 import RootLayout from "./RouterLayout";
+import theme from "./theme";
 
 function App() {
   return (
-    <div style={{ height: "100%" }}>
-      <RootLayout />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div style={{ height: "100%" }}>
+        <RootLayout />
+      </div>
+    </ThemeProvider>
   );
 }
 

@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Box, Button, Divider } from "@mui/material";
 import Avatar from "../avatar.webp";
 import { useNavigate } from "react-router-dom";
 import React, { useMemo, useState, useEffect } from "react";
@@ -67,77 +67,126 @@ const ActiveRequest = () => {
             </GoogleMap>
           )}
         </div>
+        {/* <Divider sx={{ marginTop: 3 }} /> */}
         <div
           style={{
             width: "100%",
-            fontSize: "18px",
+            fontSize: "15px",
             color: "#020617",
             marginTop: 10,
             fontWeight: 400,
+            fontFamily: "fantasy",
           }}
         >
           Name
         </div>
-        <div style={{ fontSize: "16px", color: "#6b7280", marginTop: 1 }}>
+        <div
+          style={{
+            fontSize: "16px",
+            color: "#6b7280",
+            marginTop: 1,
+            marginBottom: 7,
+            fontStyle: "italic",
+          }}
+        >
           {data?.service_name}
         </div>
+        <Divider />
         <div
           style={{
             width: "100%",
-            fontSize: "18px",
+            fontSize: "15px",
             color: "#020617",
             marginTop: 10,
             fontWeight: 400,
+            fontFamily: "fantasy",
           }}
         >
           Created Date
         </div>
-        <div style={{ fontSize: "16px", color: "#6b7280", marginTop: 1 }}>
+        <div
+          style={{
+            fontSize: "16px",
+            color: "#6b7280",
+            marginTop: 1,
+            marginBottom: 7,
+            fontStyle: "italic",
+          }}
+        >
           {new Date(data?.date_time_of_service).toLocaleString()}
         </div>
+        <Divider />
         <div
           style={{
             width: "100%",
-            fontSize: "18px",
+            fontSize: "15px",
             color: "#020617",
             marginTop: 10,
             fontWeight: 400,
+            fontFamily: "fantasy",
           }}
         >
           Hospital
         </div>
-        <div style={{ fontSize: "16px", color: "#6b7280", marginTop: 1 }}>
+        <div
+          style={{
+            fontSize: "16px",
+            color: "#6b7280",
+            marginTop: 1,
+            marginBottom: 7,
+            fontStyle: "italic",
+          }}
+        >
           {data?.hospital_name}
         </div>
+        <Divider />
         <div
           style={{
             width: "100%",
-            fontSize: "18px",
+            fontSize: "15px",
             color: "#020617",
             marginTop: 10,
             fontWeight: 400,
+            fontFamily: "fantasy",
           }}
         >
           Doctor
         </div>
-        <div style={{ fontSize: "16px", color: "#6b7280", marginTop: 1 }}>
+        <div
+          style={{
+            fontSize: "16px",
+            color: "#6b7280",
+            marginTop: 1,
+            marginBottom: 7,
+            fontStyle: "italic",
+          }}
+        >
           {data?.doctor_name}
         </div>
+        <Divider />
         <div
           style={{
             width: "100%",
-            fontSize: "18px",
+            fontSize: "15px",
             color: "#020617",
             marginTop: 10,
             fontWeight: 400,
+            fontFamily: "fantasy",
           }}
         >
-          Appoiment Date
-        </div>
-        <div style={{ fontSize: "16px", color: "#6b7280", marginTop: 1 }}>
-          {new Date(data?.appointment_time).toLocaleString()}
+          Appointment Date
         </div>
         <div
+          style={{
+            fontSize: "16px",
+            color: "#6b7280",
+            marginTop: 1,
+            fontStyle: "italic",
+          }}
+        >
+          {new Date(data?.appointment_time).toLocaleString()}
+        </div>
+        {/* <div
           style={{
             width: "100%",
             fontSize: "18px",
@@ -147,7 +196,7 @@ const ActiveRequest = () => {
           }}
         >
           Phone Number
-        </div>
+        </div> */}
         <div style={{ fontSize: "16px", color: "#6b7280", marginTop: 1 }}>
           {data?.phone_number || ""}
         </div>
@@ -167,7 +216,7 @@ const ActiveRequest = () => {
               width: "100%",
               borderRadius: 0,
               zIndex: 1000,
-              backgroundColor: "Green",
+              backgroundColor: "rgb(7,55,99)",
             }}
             onClick={() => handleChangeStatus()}
             // disabled={value === 0}

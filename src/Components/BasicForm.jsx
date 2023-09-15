@@ -22,7 +22,14 @@ const BasicForm = ({ handleUpdateData, data, handleFile }) => {
   };
 
   return (
-    <div style={{ padding: 30, display: "flex", flexDirection: "column" }}>
+    <div
+      style={{
+        padding: 30,
+        display: "flex",
+        flexDirection: "column",
+        marginTop: "-30px",
+      }}
+    >
       <TextField
         name="email"
         fullWidth
@@ -32,6 +39,9 @@ const BasicForm = ({ handleUpdateData, data, handleFile }) => {
         sx={{ marginTop: 3 }}
         onChange={handleChange}
         value={data?.email}
+        size="small"
+        InputProps={{ sx: { fontSize: "18px" } }}
+        InputLabelProps={{ sx: { fontSize: "16px", fontFamily: "cursive" } }}
       />
       <TextField
         name="password"
@@ -43,6 +53,9 @@ const BasicForm = ({ handleUpdateData, data, handleFile }) => {
         sx={{ marginTop: 3 }}
         onChange={handleChange}
         value={data?.password}
+        size="small"
+        InputProps={{ sx: { fontSize: "18px" } }}
+        InputLabelProps={{ sx: { fontSize: "16px", fontFamily: "cursive" } }}
       />
       <TextField
         name="name"
@@ -53,6 +66,9 @@ const BasicForm = ({ handleUpdateData, data, handleFile }) => {
         sx={{ marginTop: 3 }}
         onChange={handleChange}
         value={data?.name}
+        size="small"
+        InputProps={{ sx: { fontSize: "18px" } }}
+        InputLabelProps={{ sx: { fontSize: "16px", fontFamily: "cursive" } }}
       />
       <TextField
         name="phone_number"
@@ -63,6 +79,9 @@ const BasicForm = ({ handleUpdateData, data, handleFile }) => {
         sx={{ marginTop: 3 }}
         onChange={handleChange}
         value={data?.phone}
+        size="small"
+        InputProps={{ sx: { fontSize: "18px" } }}
+        InputLabelProps={{ sx: { fontSize: "16px", fontFamily: "cursive" } }}
       />
       <TextField
         fullWidth
@@ -73,6 +92,9 @@ const BasicForm = ({ handleUpdateData, data, handleFile }) => {
         sx={{ marginTop: 3 }}
         onChange={handleChange}
         value={data?.age}
+        size="small"
+        InputProps={{ sx: { fontSize: "18px" } }}
+        InputLabelProps={{ sx: { fontSize: "16px", fontFamily: "cursive" } }}
       />
       <TextField
         fullWidth
@@ -84,6 +106,9 @@ const BasicForm = ({ handleUpdateData, data, handleFile }) => {
         sx={{ marginTop: 3 }}
         onChange={handleChange}
         value={data?.address}
+        size="small"
+        InputProps={{ sx: { fontSize: "18px" } }}
+        InputLabelProps={{ sx: { fontSize: "16px", fontFamily: "cursive" } }}
       />
       <TextField
         fullWidth
@@ -94,6 +119,9 @@ const BasicForm = ({ handleUpdateData, data, handleFile }) => {
         sx={{ marginTop: 3 }}
         onChange={handleChange}
         value={data?.city}
+        size="small"
+        InputProps={{ sx: { fontSize: "18px" } }}
+        InputLabelProps={{ sx: { fontSize: "16px", fontFamily: "cursive" } }}
       />
 
       <div style={{ marginTop: "10px" }}>
@@ -123,7 +151,6 @@ const BasicForm = ({ handleUpdateData, data, handleFile }) => {
             style={{
               width: "100%",
               height: "90px",
-              marginRight: "10px",
               marginBottom: "10px",
               backgroundColor: "#fff",
               border: "1px dashed #d2d7db",

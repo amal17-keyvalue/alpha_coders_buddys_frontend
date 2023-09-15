@@ -1,6 +1,8 @@
 import Persona from "persona";
 import React, { useRef, useState } from "react";
 
+import GIF from "../Verification.gif";
+
 const PhotoDetect = () => {
   const [options, setOptions] = useState({
     templateId: "itmpl_r2JjdqZahcr9948o6KMeQg6y",
@@ -54,11 +56,45 @@ const PhotoDetect = () => {
   };
 
   return (
-    <div style={{ padding: 20, display: 'flex', flexDirection: 'column'}}>
-      <span style={{ color: '#374151', fontSize: '16px', fontWeight: 'bold'}}>Verify your identity</span>
-      <div style={{ height: '150px', width: '100%', border: '2px dashed #d2d7db', marginTop: 20, cursor: 'pointer'}}>
-        <div onClick={createClient} style={{ color: '#6b7280', fontSize: '16px', fontWeight: 'semibold', marginTop: 60, textAlign: 'center' }}>Click here to verify</div>
+    <div
+      style={{
+        padding: 20,
+        display: "flex",
+        flexDirection: "column",
+        marginTop: "20px",
+      }}
+    >
+      <span
+        style={{
+          color: "#374151",
+          fontSize: "16px",
+        }}
+      >
+        Please Validate Your Identity for Security Purposes
+      </span>
+      <div
+        style={{
+          height: "200px",
+          width: "100%",
+          border: "2px dashed #d2d7db",
+          marginTop: 20,
+          cursor: "pointer",
+        }}
+      >
+        <div
+          onClick={createClient}
+          style={{
+            color: "#6b7280",
+            fontSize: "16px",
+            fontWeight: "semibold",
+            marginTop: 80,
+            textAlign: "center",
+          }}
+        >
+          Click here to verify
+        </div>
       </div>
+      <img src={GIF} alt="abc" style={{ marginTop: "80px", height: "300px" }} />
     </div>
   );
 };

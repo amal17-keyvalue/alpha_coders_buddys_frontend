@@ -11,7 +11,7 @@ const AppBarComponent = ({ onClick, hideMenu = false, title }) => {
   return (
     <Box sx={{ flexGrow: 1, zIndex: 1000 }}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar sx={{ display: "flex", justifyContent: "center" }}>
           {!hideMenu && (
             <IconButton
               size="large"
@@ -20,6 +20,7 @@ const AppBarComponent = ({ onClick, hideMenu = false, title }) => {
               aria-label="menu"
               sx={{ mr: 2 }}
               onClick={onClick}
+              style={{ position: "absolute", left: 10 }}
             >
               <MenuIcon />
             </IconButton>
@@ -27,6 +28,15 @@ const AppBarComponent = ({ onClick, hideMenu = false, title }) => {
           {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             {title || "List"}
           </Typography> */}
+          <div
+            style={{
+              fontFamily: "revert",
+              fontSize: "22px",
+              fontStyle: "italic",
+            }}
+          >
+            Elder ease
+          </div>
         </Toolbar>
       </AppBar>
     </Box>

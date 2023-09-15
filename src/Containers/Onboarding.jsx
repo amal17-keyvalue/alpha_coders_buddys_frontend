@@ -75,7 +75,7 @@ const Onboarding = () => {
   };
 
   useEffect(() => {
-    setOpen(false);
+    setOpen(true);
   }, []);
 
   const handleCloseDialog = () => {
@@ -153,9 +153,33 @@ const Onboarding = () => {
               aria-label="basic tabs example"
               variant="fullWidth"
             >
-              <Tab label="Details" {...a11yProps(0)} />
-              <Tab label="Verify" {...a11yProps(1)} />
-              <Tab label="Questions" {...a11yProps(1)} />
+              <Tab
+                label="Details"
+                {...a11yProps(0)}
+                sx={{
+                  textTransform: "none",
+                  fontSize: "22px",
+                  fontFamily: "fantasy",
+                }}
+              />
+              <Tab
+                label="Verify"
+                {...a11yProps(1)}
+                sx={{
+                  textTransform: "none",
+                  fontSize: "22px",
+                  fontFamily: "fantasy",
+                }}
+              />
+              <Tab
+                label="Questions"
+                {...a11yProps(1)}
+                sx={{
+                  textTransform: "none",
+                  fontSize: "22px",
+                  fontFamily: "fantasy",
+                }}
+              />
             </Tabs>
           </Box>
           {value === 0 && (
@@ -174,6 +198,7 @@ const Onboarding = () => {
             display: "flex",
             width: "100%",
             position: "sticky",
+            zIndex: 10,
           }}
         >
           <Button
@@ -183,6 +208,7 @@ const Onboarding = () => {
               borderRadius: 0,
               zIndex: 1000,
               backgroundColor: "#FFFF",
+              fontFamily: "fantasy",
             }}
             onClick={handleBack}
             disabled={value === 0}
@@ -191,7 +217,7 @@ const Onboarding = () => {
           </Button>
           <Button
             variant="contained"
-            sx={{ width: "50%", borderRadius: 0 }}
+            sx={{ width: "50%", borderRadius: 0, fontFamily: "fantasy" }}
             onClick={() => handleNextClick()}
           >
             {value !== 2 ? "Next" : "Register"}
