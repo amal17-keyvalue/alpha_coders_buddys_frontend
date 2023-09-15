@@ -7,34 +7,28 @@ import { useNavigate } from "react-router-dom";
 
 const lists = [
   {
-    name: "name1",
+    name: "Hospital",
     type: "Hospital",
-    id: 1,
+    id: "HDEIC1536344",
+    status: "Requested",
   },
   {
-    name: "name1",
+    name: "Deliver Medicines",
     type: "Medicine",
-    id: 2,
+    id: "HDEIC153644",
+    status: "Accepted",
   },
   {
-    name: "name1",
+    name: "Accompany",
     type: "Accompany",
-    id: 3,
+    id: "HDEIC1534",
+    status: "Started",
   },
   {
-    name: "name1",
+    name: "Transportation",
     type: "Transportation",
-    id: 4,
-  },
-  {
-    name: "name1",
-    type: "Hospital",
-    id: 5,
-  },
-  {
-    name: "name1",
-    type: "Hospital",
-    id: 6,
+    id: "HDEIC153434",
+    status: "Completed",
   },
 ];
 
@@ -98,7 +92,7 @@ const HomePage = () => {
                       color: "#6b7280",
                     }}
                   >
-                    name
+                    {item.name}
                   </div>
                   <div
                     style={{
@@ -106,9 +100,16 @@ const HomePage = () => {
                       fontSize: "10px",
                       color: "#6b7280",
                       marginTop: "4px",
+                      padding: 2,
+                      backgroundColor: "#f3f4f6",
+                      paddingLeft: 4,
+                      paddingRight: 4,
+                      borderRadius: 4,
+                      minWidth: "54px",
+                      textAlign: "center",
                     }}
                   >
-                    status
+                    {item.status}
                   </div>
                 </div>
                 <div
@@ -119,7 +120,7 @@ const HomePage = () => {
                     marginTop: "5px",
                   }}
                 >
-                  id
+                  {item.id}
                 </div>
                 <div
                   style={{
@@ -129,7 +130,7 @@ const HomePage = () => {
                     marginTop: "5px",
                   }}
                 >
-                  time
+                  {item.time}
                 </div>
               </div>
             </div>

@@ -2,16 +2,19 @@ import { TextField, Checkbox } from "@mui/material";
 import { useState, useRef } from "react";
 import Camera from "@mui/icons-material/CameraAltOutlined";
 
-const BasicForm = () => {
+const BasicForm = ({ handleUpdateData, data, handleFile }) => {
   const [checked, setChecked] = useState(false);
   const fileInput = useRef(null);
 
   const handleChange = (event) => {
-    setChecked(event.target.checked);
+    handleUpdateData({
+      ...data,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const uploadFile = (e) => {
-    console.log(e);
+    handleFile(e);
   };
 
   const openFileWindow = () => {
@@ -21,101 +24,122 @@ const BasicForm = () => {
   return (
     <div style={{ padding: 30, display: "flex", flexDirection: "column" }}>
       <TextField
+        name="email"
         fullWidth
         id="outlined-basic"
         label="Email"
         variant="outlined"
         sx={{ marginTop: 3 }}
+        onChange={handleChange}
+        value={data?.email}
       />
       <TextField
+        name="password"
+        type="password"
         fullWidth
         id="outlined-basic"
         label="Password"
         variant="outlined"
         sx={{ marginTop: 3 }}
+        onChange={handleChange}
+        value={data?.password}
       />
       <TextField
+        name="name"
         fullWidth
         id="outlined-basic"
         label="Full Name"
         variant="outlined"
         sx={{ marginTop: 3 }}
+        onChange={handleChange}
+        value={data?.name}
       />
       <TextField
+        name="phone_number"
         fullWidth
         id="outlined-basic"
         label="Phone Number"
         variant="outlined"
         sx={{ marginTop: 3 }}
+        onChange={handleChange}
+        value={data?.phone}
       />
       <TextField
         fullWidth
+        name="age"
         id="outlined-basic"
         label="Age"
         variant="outlined"
         sx={{ marginTop: 3 }}
+        onChange={handleChange}
+        value={data?.age}
       />
       <TextField
         fullWidth
+        name="address"
         id="outlined-basic"
         label="Address"
         multiline
         rows={4}
         sx={{ marginTop: 3 }}
+        onChange={handleChange}
+        value={data?.address}
       />
       <TextField
         fullWidth
+        name="city"
         id="outlined-basic"
         label="City of residence"
         variant="outlined"
         sx={{ marginTop: 3 }}
+        onChange={handleChange}
+        value={data?.city}
       />
-      {checked && (
-        <div style={{ marginTop: "10px" }}>
+
+      <div style={{ marginTop: "10px" }}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            marginTop: "10px",
+            height: "auto",
+            overflow: "auto",
+          }}
+        >
+          <input
+            type="file"
+            accept=".jpeg, .jpg, .png"
+            style={{
+              display: "none",
+            }}
+            ref={fileInput}
+            onChange={(evt) => uploadFile(evt.target.files[0])}
+            // eslint-disable-next-line no-param-reassign
+            onClick={(evt) => {
+              evt.currentTarget.value = null;
+            }}
+          />
           <div
             style={{
+              width: "100%",
+              height: "90px",
+              marginRight: "10px",
+              marginBottom: "10px",
+              backgroundColor: "#fff",
+              border: "1px dashed #d2d7db",
+              boxSizing: "border-box",
               display: "flex",
-              flexWrap: "wrap",
-              marginTop: "10px",
-              height: "auto",
-              overflow: "auto",
+              justifyContent: "center",
+              alignItems: "center",
+              cursor: "pointer",
             }}
+            role="presentation"
+            onClick={openFileWindow}
           >
-            <input
-              type="file"
-              accept=".jpeg, .jpg, .png"
-              style={{
-                display: "none",
-              }}
-              ref={fileInput}
-              onChange={(evt) => uploadFile(evt.target.files[0])}
-              // eslint-disable-next-line no-param-reassign
-              onClick={(evt) => {
-                evt.currentTarget.value = null;
-              }}
-            />
-            <div
-              style={{
-                width: "100%",
-                height: "90px",
-                marginRight: "10px",
-                marginBottom: "10px",
-                backgroundColor: "#fff",
-                border: "1px dashed #d2d7db",
-                boxSizing: "border-box",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                cursor: "pointer",
-              }}
-              role="presentation"
-              onClick={openFileWindow}
-            >
-              <Camera />
-            </div>
+            Click here to upload photo
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };

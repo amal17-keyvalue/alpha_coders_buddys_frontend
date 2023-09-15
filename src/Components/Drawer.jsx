@@ -9,6 +9,11 @@ const DrawerComponent = ({ open, onClose }) => {
     onClose();
   };
 
+  const handlLogout = () => {
+    navigate("/login");
+    localStorage.removeItem("id");
+  };
+
   return (
     <Drawer
       anchor="left"
@@ -75,7 +80,7 @@ const DrawerComponent = ({ open, onClose }) => {
           <div style={{ marginTop: 13, marginLeft: 10 }}>Profile</div>
         </div>
         <div
-          onClick={() => null}
+          onClick={() => handlLogout()}
           style={{
             height: 40,
             padding: 4,

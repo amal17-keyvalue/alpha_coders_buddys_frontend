@@ -7,24 +7,26 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 
-const AppBarComponent = ({ onClick, hideMenu= false, title }) => {
+const AppBarComponent = ({ onClick, hideMenu = false, title }) => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, zIndex: 1000 }}>
       <AppBar position="static">
         <Toolbar>
-          { !hideMenu && <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-            onClick={onClick}
-          >
-            <MenuIcon />
-          </IconButton>}
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            { title || 'List'}
-          </Typography>
+          {!hideMenu && (
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+              onClick={onClick}
+            >
+              <MenuIcon />
+            </IconButton>
+          )}
+          {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            {title || "List"}
+          </Typography> */}
         </Toolbar>
       </AppBar>
     </Box>

@@ -12,6 +12,9 @@ import Medicine from "../medications_delivery.png";
 import Shopping from "../shopping_horizontal.jpg";
 import Transportation from "../transportation.jpg";
 import Care from "../shopping_with_elderly.jpg";
+import { base_url } from "../constants";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const expectedItems = [
   {
@@ -49,10 +52,30 @@ const expectedItems = [
 const Onboarding = () => {
   const [value, setValue] = useState(0);
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
   const [carousalValue, setCarousalValue] = useState(0);
+  const [file, setFile] = useState(null);
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    phone_number: "",
+    password: "",
+    address: "",
+    age: "",
+    city: "",
+    gender: "M",
+  });
+
+  const handleFile = (file) => {
+    setFile(file);
+  };
+
+  const handleUpdateData = (data) => {
+    setData(data);
+  };
 
   useEffect(() => {
-    setOpen(true);
+    setOpen(false);
   }, []);
 
   const handleCloseDialog = () => {
@@ -70,13 +93,35 @@ const Onboarding = () => {
     };
   }
 
-  const handleNextClick = () => {
+  const handleNextClick = async () => {
+    const formData = new FormData();
+    formData.append("file", file);
     if (value === 0) {
       setValue(1);
     } else if (value === 1) {
       setValue(2);
+    } else {
+      const res = await fetch(`${base_url}/buddy`, {
+        method: "POST",
+        cache: "no-cache",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      const x = await res.json();
+      if (x) {
+        navigate("/login");
+      }
+      await fetch(`${base_url}/buddy/${x.id}/upload`, {
+        method: "POST",
+        cache: "no-cache",
+        // headers: {
+        //   "Content-Type": "multipart/form-data;",
+        // },
+        body: formData,
+      });
     }
-    // else submit action
   };
 
   const handleBack = () => {
@@ -108,12 +153,18 @@ const Onboarding = () => {
               aria-label="basic tabs example"
               variant="fullWidth"
             >
-              <Tab label="step 1" {...a11yProps(0)} />
-              <Tab label="step 2" {...a11yProps(1)} />
-              <Tab label="step 3" {...a11yProps(1)} />
+              <Tab label="Details" {...a11yProps(0)} />
+              <Tab label="Verify" {...a11yProps(1)} />
+              <Tab label="Questions" {...a11yProps(1)} />
             </Tabs>
           </Box>
-          {value === 0 && <BasicForm />}
+          {value === 0 && (
+            <BasicForm
+              handleUpdateData={handleUpdateData}
+              data={data}
+              handleFile={handleFile}
+            />
+          )}
           {value === 1 && <PhotoDetect />}
           {value === 2 && <Questions />}
         </Box>

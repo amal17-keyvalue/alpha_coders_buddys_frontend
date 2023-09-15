@@ -1,15 +1,40 @@
 import { useNavigate } from "react-router-dom";
 import { TextField, Button } from "@mui/material";
+import { base_url } from "../constants";
+import { useState } from "react";
 
 const LoginScreen = () => {
   const navigate = useNavigate();
+  const [userName, setUserName] = useState();
+  const [password, setPassword] = useState();
 
-  const handleLogin = () => {
-    navigate("/home");
+  const handleLogin = async () => {
+    const res = await fetch(`${base_url}/buddy/login`, {
+      method: "POST",
+      cache: "no-cache",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ password, email: userName }),
+    });
+    if (res) {
+      const x = await res.json();
+      console.log(x);
+      localStorage.setItem("id", x.id);
+      navigate("/home");
+    }
   };
 
   const handleRegister = () => {
     navigate("/onboarding");
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleUsernameChange = (e) => {
+    setUserName(e.target.value);
   };
 
   return (
@@ -29,13 +54,16 @@ const LoginScreen = () => {
           id="outlined-basic"
           label="Username"
           variant="outlined"
+          onChange={handleUsernameChange}
         />
         <TextField
           fullWidth
+          type="password"
           id="outlined-basic"
           label="Password"
           variant="outlined"
           sx={{ marginTop: 2 }}
+          onChange={handlePasswordChange}
         />
         <Button
           sx={{ width: "100%", marginTop: 3, textTransform: "none" }}
