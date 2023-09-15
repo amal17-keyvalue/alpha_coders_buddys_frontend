@@ -1,0 +1,23 @@
+.shop-imgs-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  height: auto;
+  overflow: auto;
+}
+.file-input {
+  display: none;
+}
+.upload-img {
+  width: 65px;
+  height: 65px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-color: $backgroundColorPrimary;
+  border: 1px dashed $borderColor;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
