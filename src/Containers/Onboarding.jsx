@@ -15,6 +15,8 @@ import Care from "../shopping_with_elderly.jpg";
 import { base_url } from "../constants";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const expectedItems = [
   {
@@ -111,6 +113,7 @@ const Onboarding = () => {
       });
       const x = await res.json();
       if (x) {
+        toast("Successfully Registered");
         navigate("/login");
       }
       await fetch(`${base_url}/buddy/${x.id}/upload`, {
