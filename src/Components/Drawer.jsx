@@ -38,9 +38,9 @@ const DrawerComponent = ({ open, onClose }) => {
             height: 40,
             padding: 4,
             display: "flex",
-            color: "#374151",
+            color: "rgb(7,55,99)",
             fontSize: "16px",
-            borderBottom: "1px solid #e5e7eb",
+            borderBottom: "1px solid rgb(7,55,99)",
             cursor: "pointer",
           }}
         >
@@ -52,9 +52,8 @@ const DrawerComponent = ({ open, onClose }) => {
             height: 40,
             padding: 4,
             display: "flex",
-            color: "#374151",
+            color: "rgb(7,55,99)",
             fontSize: "16px",
-            borderBottom: "1px solid #e5e7eb",
             cursor: "pointer",
           }}
         >
@@ -70,10 +69,8 @@ const DrawerComponent = ({ open, onClose }) => {
             height: 40,
             padding: 4,
             display: "flex",
-            color: "#374151",
+            color: "rgb(7,55,99)",
             fontSize: "16px",
-            borderBottom: "1px solid #e5e7eb",
-            borderTop: "1px solid #e5e7eb",
             cursor: "pointer",
           }}
         >
@@ -85,10 +82,9 @@ const DrawerComponent = ({ open, onClose }) => {
             height: 40,
             padding: 4,
             display: "flex",
-            color: "#374151",
+            color: "rgb(7,55,99)",
             fontSize: "16px",
-            borderBottom: "1px solid #e5e7eb",
-            borderTop: "1px solid #e5e7eb",
+            borderTop: "1px solid rgb(7,55,99)",
             cursor: "pointer",
           }}
         >
