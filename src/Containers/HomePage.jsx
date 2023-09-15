@@ -4,6 +4,8 @@ import Transportation from "../transportation_icon.jpg";
 import Medicine from "../medicinesicon.png";
 import Accompany from "../accompany_icon.png";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { base_url } from "../constants";
 
 const lists = [
   {
@@ -49,6 +51,17 @@ const getIcon = (type) => {
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const [data, setData] = useState([]);
+  const id = localStorage.getItem("id");
+
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch(`${base_url}/buddy/${id}/services`);
+      const x = await res.json();
+      setData(x);
+    }
+    fetchData();
+  }, []);
 
   const handleCardClick = () => {
     navigate("/active");
@@ -57,7 +70,7 @@ const HomePage = () => {
   return (
     <div>
       <div style={{ display: "flex", flexDirection: "column", padding: 9 }}>
-        {lists?.map((item) => (
+        {data?.map((item) => (
           <Paper
             sx={{
               padding: 2,
@@ -88,11 +101,11 @@ const HomePage = () => {
                   <div
                     style={{
                       textAlign: "left",
-                      fontSize: "16px",
+                      fontSize: "14px",
                       color: "#6b7280",
                     }}
                   >
-                    {item.name}
+                    {item.service_name}
                   </div>
                   <div
                     style={{
@@ -115,7 +128,7 @@ const HomePage = () => {
                 <div
                   style={{
                     textAlign: "left",
-                    fontSize: "16px",
+                    fontSize: "14px",
                     color: "#6b7280",
                     marginTop: "5px",
                   }}
@@ -125,12 +138,12 @@ const HomePage = () => {
                 <div
                   style={{
                     textAlign: "left",
-                    fontSize: "16px",
+                    fontSize: "14px",
                     color: "#6b7280",
                     marginTop: "5px",
                   }}
                 >
-                  {item.time}
+                  {new Date(item.date_time_of_service).toLocaleString()}
                 </div>
               </div>
             </div>
