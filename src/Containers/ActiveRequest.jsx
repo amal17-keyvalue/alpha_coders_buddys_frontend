@@ -5,6 +5,7 @@ import React, { useMemo, useState, useEffect } from "react";
 import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
 import "./style.css";
 import { base_url } from "../constants";
+import { toast } from "react-toastify";
 
 const ActiveRequest = () => {
   const navigate = useNavigate();
@@ -42,6 +43,7 @@ const ActiveRequest = () => {
     });
     const x = await res.json();
     if (x) {
+      toast("Successfully accepted");
       navigate("/home");
     }
   };
