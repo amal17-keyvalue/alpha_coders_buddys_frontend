@@ -14,13 +14,13 @@ const Profile = () => {
       const x = await res.json();
       setData(x);
     }
-    async function fetchImage() {
-      const res = await fetch(`${base_url}/buddy/${id}/image`);
-      const x = await res.json();
-      setImage(x);
-    }
+    // async function fetchImage() {
+    //   const res = await fetch(`${base_url}/buddy/${id}/image`);
+    //   const x = await res.json();
+    //   setImage(x);
+    // }
     fetchData();
-    fetchImage();
+    // fetchImage();
   }, []);
 
   console.log(image);

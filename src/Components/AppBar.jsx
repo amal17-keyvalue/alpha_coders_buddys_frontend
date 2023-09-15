@@ -35,7 +35,7 @@ const AppBarComponent = ({ onClick, hideMenu = false, title }) => {
               fontStyle: "italic",
             }}
           >
-            Elder ease
+            Elder Buddy
           </div>
         </Toolbar>
       </AppBar>

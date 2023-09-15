@@ -147,7 +147,7 @@ const BasicForm = ({ handleUpdateData, data, handleFile }) => {
               evt.currentTarget.value = null;
             }}
           />
-          <div
+          {/* <div
             style={{
               width: "100%",
               height: "90px",
@@ -164,7 +164,7 @@ const BasicForm = ({ handleUpdateData, data, handleFile }) => {
             onClick={openFileWindow}
           >
             Click here to upload photo
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

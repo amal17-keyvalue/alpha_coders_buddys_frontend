@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, Typography } from "@mui/material";
 import { base_url } from "../constants";
 import { useState } from "react";
 
@@ -54,7 +54,13 @@ const LoginScreen = () => {
         justifyContent: "center",
       }}
     >
-      <div style={{ marginBottom: "20px" }}>
+      <Typography variant="h1" fontFamily="cursive">
+        Elder Buddy
+      </Typography>
+      <Typography variant="subtitle2" fontFamily="cursive">
+        Buddy App
+      </Typography>
+      <div style={{ marginBottom: "20px", marginTop: "40px" }}>
         <img src={AppLogo} alt="logo" style={{ borderRadius: "40px" }} />
       </div>
       <div style={{ marginTop: "20px" }}>

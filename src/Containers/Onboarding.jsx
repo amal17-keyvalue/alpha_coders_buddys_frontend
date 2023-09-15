@@ -116,14 +116,14 @@ const Onboarding = () => {
         toast("Successfully Registered");
         navigate("/login");
       }
-      await fetch(`${base_url}/buddy/${x.id}/upload`, {
-        method: "POST",
-        cache: "no-cache",
-        // headers: {
-        //   "Content-Type": "multipart/form-data;",
-        // },
-        body: formData,
-      });
+      // await fetch(`${base_url}/buddy/${x.id}/upload`, {
+      //   method: "POST",
+      //   cache: "no-cache",
+      //   // headers: {
+      //   //   "Content-Type": "multipart/form-data;",
+      //   // },
+      //   body: formData,
+      // });
     }
   };
 
